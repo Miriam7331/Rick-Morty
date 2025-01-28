@@ -5,7 +5,7 @@ import { useFetch } from "../hooks/useFetch";
 import { CharactersContext } from "../App";
 
 export default function CharactersPage() {
-  const { CharactersList, setCharactersList } = useContext(CharactersContext);
+  const { charactersList, setCharactersList } = useContext(CharactersContext);
 
   const { data, loading, error } = useFetch(
     "https://rickandmortyapi.com/api/character"
@@ -18,9 +18,9 @@ export default function CharactersPage() {
 
   useEffect(() => {
     if (data) {
-      setCharactersList(data.results);
+      setCharactersList(data);
     }
-  }, [data, setCharactersList]);
+  }, [data]);
 
   return (
     <div className="App">

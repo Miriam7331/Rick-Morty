@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import CharactersPage from "./pages/CharactersPage";
 import Layout from "./layouts/Layout";
 import Personaje from "./pages/Personaje";
+
 import Blog from "./pages/Blog";
 import { useContext, createContext, useState } from "react";
 import BlogCharacter from "./pages/Blog";
