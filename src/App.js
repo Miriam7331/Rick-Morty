@@ -1,28 +1,34 @@
-import './App.css';
+import "./App.css";
 
-import { Routes, Route } from 'react-router-dom';
-import CharactersPage from './pages/CharactersPage';
-import Layout from './layouts/layout';
-import Personaje from './pages/Personaje';
-import { useContext, createContext , useState} from 'react';
-import BlogCharacter from './pages/BlogCharacter';
-export const StorageContext = createContext();
+import { Routes, Route } from "react-router-dom";
+import CharactersPage from "./pages/CharactersPage";
+import Layout from "./layouts/Layout";
+import Personaje from "./pages/Personaje";
+import Blog from "./pages/Blog";
+import { useContext, createContext, useState } from "react";
+import BlogCharacter from "./pages/Blog";
+import Navbar from "./components/Navbar";
+
+export const CharactersContext = createContext();
 
 function App() {
-
-  const [storage, setStorage] = useState(StorageContext);
+  const [charactersList, setCharactersList] = useState([null]);
 
   return (
+    <>
+      <CharactersContext.Provider value={{ charactersList, setCharactersList }}>
+        <Navbar></Navbar>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route element={<Blog />} path="/Blog"></Route>
+            <Route element={<BlogCharacter />} path="/Blog/:id"></Route>
 
-    <StorageContext.Provider value={{storage, setStorage}}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<CharactersPage />} />
-          <Route path="/Personaje/:id" element={<Personaje />} />
-          <Route path="/BlogCharacters" element={<BlogCharacter />} />
-        </Route>
-      </Routes>
-    </StorageContext.Provider>
+            <Route path="/" element={<CharactersPage />} />
+            <Route path="/Personaje/:id" element={<Personaje />} />
+          </Route>
+        </Routes>
+      </CharactersContext.Provider>
+    </>
   );
 }
 

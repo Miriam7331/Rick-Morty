@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router";
 
 export default function Navbar() {
   return (
@@ -7,12 +7,12 @@ export default function Navbar() {
       <div className="container">
         <nav>
           <ul>
-            <Link className="btn btn-outline-primary" to="/">
+            <NavLink className="btn btn-outline-primary" to="/">
               <li>Home</li>
-            </Link>
-            <Link className="btn btn-outline-primary" to="/BlogCharacters">
+            </NavLink>
+            <NavLink className="btn btn-outline-primary" to="/Blog">
               <li>Blog</li>
-            </Link>
+            </NavLink>
           </ul>
         </nav>
       </div>
