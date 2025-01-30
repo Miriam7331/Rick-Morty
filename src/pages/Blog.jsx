@@ -30,7 +30,7 @@ export default function Blog() {
           )
           .map((item) => {
             return (
-              <Link to={`/blog/${item.id}`} key={item.id}>
+              <Link to={`/Blog/${item.id}`} key={item.id}>
                 <li className="list-group-item">{item.name}</li>
               </Link>
             );

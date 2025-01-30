@@ -4,7 +4,7 @@ import { CharactersContext } from "../App";
 
 export default function Personaje() {
   const { id } = useParams();
-  const { storage: charactersList } = useContext(CharactersContext);
+  const { charactersList } = useContext(CharactersContext);
 
   const currentIndex = charactersList.results.findIndex(
     (character) => character.id.toString() === id
